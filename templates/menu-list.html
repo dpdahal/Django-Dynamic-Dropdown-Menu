@@ -1,0 +1,13 @@
+<ul>
+    {% for ch in childMenu %}
+        {% if ch.get_children %}
+            <li>
+                <a href="">{{ ch.name }}</a>
+                {% include 'menu-list.html' with childMenu=ch.get_children %}
+            </li>
+        {% else %}
+            <li><a href="">{{ ch.name }}</a></li>
+        {% endif %}
+
+    {% endfor %}
+</ul>

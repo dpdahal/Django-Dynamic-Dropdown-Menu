@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <title> A Powerful Responsive Navigation</title>
+    <link href="https://fonts.googleapis.com/css?family=Exo+2:300,400" rel="stylesheet">
+    <!-- required -->
+    <link rel="stylesheet" media="all" href="{% static 'css/stellarnav.css' %}">
+    <link rel="stylesheet" media="all" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+
+<div class="stellarnav">
+    <ul>
+        {% for menu in menuData %}
+            {% if menu.get_children %}
+                <li>
+                    <a href="">{{ menu.name }}</a>
+                    {% include 'menu-list.html' with childMenu=menu.get_children %}
+                </li>
+
+            {% else %}
+                <li><a href="">{{ menu.name }}</a></li>
+            {% endif %}
+        {% endfor %}
+
+    </ul>
+</div><!-- .stellarnav -->
+
+<!-- required -->
+<script src="{% static 'js/jquery.js' %}"></script>
+<script src="{% static 'js/stellarnav.js' %}"></script>
+<script src="{% static 'js/custom.js' %}"></script>
+
+</body>
+</html>

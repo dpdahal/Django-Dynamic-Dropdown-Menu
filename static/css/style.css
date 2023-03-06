@@ -1,0 +1,23 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-size: 16px;
+    font-family: 'Exo 2', sans-serif;
+    background: #efefef;
+    color: #555;
+}
+
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+@media only screen and (max-width: 1000px) {
+    .stellarnav > ul > li > a {
+        padding: 20px 23px;
+    }
+}
